@@ -83,22 +83,19 @@ document.getElementById('btn-see-more').addEventListener('click', function(){
    seeMorebtn.classList.add('d-none')
 })
 
-
-// document.getElementById('sort-by-date').addEventListener('click', function() {
-//     toggleSpinner(true);
-  
-//     fetch('https://openapi.programming-hero.com/api/ai/tool/01')
-//       .then(response => response.json())
-//       .then(data => {
-//         const cards = data.cards;
-//         const getCardDate = (card) => new Date(card.published_in);
-//         const cardsSorted = cards.sort((a, b) => getCardDate(a) - getCardDate(b));
-//         console.log(cardsSorted);
-//         // Reload the API data with the sorted cards
-//         loadApi();
-//       })
-//       .catch(error => console.error(error));
-//   });
+document.getElementById('sort-by-date').addEventListener('click', async function() {
+    toggleSpinner(true);
+    cardContainer.innerContent = ""
+    const url = `https://openapi.programming-hero.com/api/ai/tools`
+    const res = await fetch(url);
+    const data = await res.json();
+    const cards = data.data.tools;
+    const getCardDate = (card) => new Date(card.published_in);
+    const cardsSorted = cards.sort((a, b) => getCardDate(a) - getCardDate(b));
+    console.log(cardsSorted);
+    // Reload the API data with the sorted cards
+    loadApi();
+});
 
 
 
