@@ -84,9 +84,24 @@ document.getElementById('btn-see-more').addEventListener('click', function(){
 })
 
 
-document.getElementById('sort-by-date').addEventListener('click',function(){
-  toggleSpinner(true);
-})
+// document.getElementById('sort-by-date').addEventListener('click', function() {
+//     toggleSpinner(true);
+  
+//     fetch('https://openapi.programming-hero.com/api/ai/tool/01')
+//       .then(response => response.json())
+//       .then(data => {
+//         const cards = data.cards;
+//         const getCardDate = (card) => new Date(card.published_in);
+//         const cardsSorted = cards.sort((a, b) => getCardDate(a) - getCardDate(b));
+//         console.log(cardsSorted);
+//         // Reload the API data with the sorted cards
+//         loadApi();
+//       })
+//       .catch(error => console.error(error));
+//   });
+
+
+
 
 loadApi();
 
